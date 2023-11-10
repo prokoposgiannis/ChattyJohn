@@ -27,8 +27,8 @@ export const Message = ({ role, content }) => {
           </div>
         )}
       </div>
-      ``
       <div>{content}</div>
     </div>
   );
 };
+``;

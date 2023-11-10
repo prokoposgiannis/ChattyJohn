@@ -9,7 +9,7 @@ import Head from "next/head";
 export default function ChatPage() {
   const [messageText, setMessageText] = useState("");
   const [incomingMessage, setIncomingMessage] = useState("");
-  const [newChatMessages, setNewChatMessages] = useState([]);
+  const [newChatMessages, setNewChatMessages] = useState(["hey"]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
