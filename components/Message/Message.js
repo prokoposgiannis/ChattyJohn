@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export const Message = ({ role, content }) => {
   const { user } = useUser();
+  console.log("USER: ", user);
   return (
     <div
       className={`grid grid-cols-[30px_1fr] gap-5 p-5 ${
@@ -12,7 +13,7 @@ export const Message = ({ role, content }) => {
       }`}
     >
       <div>
-        {role === "user" && (
+        {role === "user" && !!user && (
           <Image
             src={user.picture}
             width={30}
