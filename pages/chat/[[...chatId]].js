@@ -9,13 +9,7 @@ import Head from "next/head";
 export default function ChatPage() {
   const [messageText, setMessageText] = useState("");
   const [incomingMessage, setIncomingMessage] = useState("");
-  const [newChatMessages, setNewChatMessages] = useState([
-    {
-      _id: 1,
-      role: "assistant",
-      content: "Example assistant content",
-    },
-  ]);
+  const [newChatMessages, setNewChatMessages] = useState([]);
   const [generatingResponse, setGeneratingResponse] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -57,8 +51,8 @@ export default function ChatPage() {
       </Head>
       <div className="grid h-screen grid-cols-[260px_1fr] ">
         <ChatSideBar />
-        <div className="flex flex-col bg-gray-700">
-          <div className="flex-1 text-white">
+        <div className="flex flex-col overflow-hidden bg-gray-700">
+          <div className="flex-1 overflow-scroll text-white">
             {newChatMessages.map((message) => (
               <Message
                 key={message._id}
