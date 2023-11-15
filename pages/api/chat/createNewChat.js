@@ -1,4 +1,4 @@
-import { GetSession } from "@auth0/nextjs-auth0";
+import { getSession } from "@auth0/nextjs-auth0";
 import clientPromise from "lib/mongodb";
 
 export default async function handler(req, res) {
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       content: message,
     };
     const client = await clientPromise;
-    const db = client.db(ChattyJohnDB);
+    const db = client.db("ChattyJohnDB");
     const chat = await db.collection("chats").insertOne({
       userId: user.sub,
       messages: [newUserMessage],

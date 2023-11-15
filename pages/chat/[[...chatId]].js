@@ -25,7 +25,14 @@ export default function ChatPage() {
 
     setMessageText("");
 
-    const response = await fetch(`/api/chat/sendMessage`, {
+    const response = await fetch(`/api/chat/createNewChat`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ message: messageText }),
+    });
+    const json = await response.json();
+    console.log("NEW CHAT: ", json);
+    /* const response = await fetch(`/api/chat/sendMessage`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,7 +48,7 @@ export default function ChatPage() {
     await streamReader(reader, (message) => {
       setIncomingMessage((state) => `${state}${message.content}`);
     });
-
+*/
     setGeneratingResponse(false);
   };
   return (
